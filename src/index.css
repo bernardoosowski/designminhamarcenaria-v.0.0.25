@@ -10,8 +10,8 @@
 
 :root {
   /* Design System Colors */
-  --color-primary: #ff9d00;
-  --color-primary-hover: #ffaa21;
+  --color-primary: #3b82f6;
+  --color-primary-hover: #2563eb;
   --color-primary-light: #dbeafe;
   --color-secondary: #64748b;
   --color-success: #059669;
@@ -20,9 +20,9 @@
   --color-surface: #ffffff;
   --color-background: #f8fafc;
   --color-background-alt: #f1f5f9;
-  --color-text: #ba8b00;
-  --color-text-secondary: #c09923;
-  --color-text-muted: #ffaa21;
+  --color-text: #1e40af;
+  --color-text-secondary: #3b82f6;
+  --color-text-muted: #6b7280;
   --color-border: #e2e8f0;
   --color-border-light: #f1f5f9;
   

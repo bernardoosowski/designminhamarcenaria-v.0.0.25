@@ -1,8 +1,8 @@
 
 :root {
   --color-toolbar-surface: #ffffffe9;
-  --color-primary: #ffaa21;
-  --color-primary-hover: #fc9f0a;
+  --color-primary: #3b82f6;
+  --color-primary-hover: #2563eb;
   --color-primary-light: #dbeafe;
   --color-secondary: #e5e8ed;
   --color-success: #059669;
@@ -11,34 +11,34 @@
   --color-surface: #ffffff;
   --color-background: #f8fafc;
   --color-background-alt: #f1f5f9;
-  --color-background-gradient: linear-gradient(135deg, #f8fafc 0%, #f8fafc 100%);
-  --color-text: #527de1;
-  --color-text-secondary: #c7deff;
-  --color-text-muted: #e1e9f5;
+  --color-background-gradient: linear-gradient(135deg, #f8fafc 0%, #eff6ff 100%);
+  --color-text: #1e40af;
+  --color-text-secondary: #3b82f6;
+  --color-text-muted: #6b7280;
   --color-border: #e2e8f0;
   --color-border-light: #f1f5f9;
 }
 
 /* =================================================================== */
-/* TEMA ESCURO (DARK) COM MÁXIMO CONTRASTE DE TEXTO                    */
+/* TEMA ESCURO (DARK) COM CORES AZUIS RESPONSIVAS                      */
 /* =================================================================== */
 [data-theme="dark"] {
   /* Cores de Fundo */
-  --color-toolbar-surface: #1e2430dd; 
+  --color-toolbar-surface: #1e293bdd; 
   --color-surface: #1e293b;           
-  --color-background: #1e293b;         
-  --color-background-alt: #dadfe6;
-  --color-background-gradient: linear-gradient(135deg, #453312 0%, #835c2c 100%);     
+  --color-background: #0f172a;         
+  --color-background-alt: #334155;
+  --color-background-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);     
 
-  /* CORREÇÃO FINAL: Cores de Texto com mais brilho para máxima legibilidade */
+  /* Cores Primárias Azuis para Modo Escuro */
+  --color-primary: #60a5fa;            /* Azul mais claro para contraste */
+  --color-primary-hover: #3b82f6;      /* Azul médio no hover */
+  --color-primary-light: #1e40af;      /* Azul escuro para fundos */
+
+  /* Cores de Texto com máximo contraste */
   --color-text: #f8fafc;               /* Texto principal (Branco) */
-  --color-text-secondary: #e2e8f0;     /* Texto secundário, como os labels (Cinza bem claro) */
-  --color-text-muted: #cbd5e1;         /* Texto "muted", como o contador de espaços (Cinza claro) */
-
-  /* Cores de Destaque */
-  --color-primary: #ffaa21;            
-  --color-primary-hover: #fc9f0a;      
-  --color-primary-light: #ffb94a;      
+  --color-text-secondary: #cbd5e1;     /* Texto secundário azul claro */
+  --color-text-muted: #94a3b8;         /* Texto "muted" azul acinzentado */
 
   /* Cores de Borda */
   --color-border: #475569;             

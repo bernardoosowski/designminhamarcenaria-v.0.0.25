@@ -53,7 +53,7 @@ export const SingleSpaceVisualizer: React.FC<SingleSpaceVisualizerProps> = ({
       raycast={selectionMode === 'space' ? defaultRaycast : noopRaycast}
     >
       <meshStandardMaterial
-        color={isSelected ? '#ff6600' : '#3b82f6'}
+        color={isSelected ? '#3b82f6' : '#2563eb'}
         transparent
         opacity={isSelected ? 0.35 : 0.15}
         depthWrite={false}

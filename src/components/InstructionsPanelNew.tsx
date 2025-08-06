@@ -236,7 +236,7 @@ export const InstructionsPanel = () => {
     {
       title: "4. Adicione Peças",
       description: "Clique nos botões para adicionar peças estruturais ou internas conforme o modo selecionado.",
-      color: "#f59e0b"
+      color: "#3b82f6"
     },
     {
       title: "5. Selecione Espaços",

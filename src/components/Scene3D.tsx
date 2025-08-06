@@ -1,4 +1,4 @@
-import React, { Suspense, useState, useEffect } from 'react';
+import React, { Suspense } from 'react';
 import * as THREE from 'three';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Environment, Grid } from '@react-three/drei';
@@ -61,16 +61,6 @@ export const Scene3D: React.FC<Scene3DProps> = ({
   holeVisualizationActive = false
 }) => {
   const gridYPosition = - ((space?.originalDimensions?.height || 2100) / 100) / 2 - 0.2;
-  const [gridColors, setGridColors] = useState({ cell: '#e0e0e0', section: '#3b82f6' });
-
-  useEffect(() => {
-    const computedStyle = getComputedStyle(document.documentElement);
-    const cellColor = computedStyle.getPropertyValue('--color-border').trim();
-    const sectionColor = computedStyle.getPropertyValue('--color-primary').trim();
-    if (cellColor && sectionColor) {
-      setGridColors({ cell: cellColor, section: sectionColor });
-    }
-  }, []);
 
   console.log('All pieces:', allPieces);
 
@@ -99,8 +89,8 @@ export const Scene3D: React.FC<Scene3DProps> = ({
           <Grid 
             position={[0, gridYPosition, 0]} 
             args={[25, 25]} 
-            cellColor={gridColors.cell} 
-            sectionColor={gridColors.section} 
+            cellColor="#cbd5e1"
+            sectionColor="#3b82f6" 
             infiniteGrid 
           />
             

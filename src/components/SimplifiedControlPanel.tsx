@@ -154,8 +154,8 @@ export const SimplifiedControlPanel = ({
   const structuralPieces = [
     { type: PieceType.LATERAL_LEFT, name: 'Lateral Esq.', color: '#8b5cf6' },
     { type: PieceType.LATERAL_RIGHT, name: 'Lateral Dir.', color: '#8b5cf6' },
-    { type: PieceType.LATERAL_FRONT, name: 'Lateral Front.', color: '#f59e0b' },
-    { type: PieceType.LATERAL_BACK, name: 'Lateral Tras.', color: '#f59e0b' },
+    { type: PieceType.LATERAL_FRONT, name: 'Lateral Front.', color: '#3b82f6' },
+    { type: PieceType.LATERAL_BACK, name: 'Lateral Tras.', color: '#2563eb' },
     { type: PieceType.BOTTOM, name: 'Fundo', color: '#ef4444' },
     { type: PieceType.TOP, name: 'Tampo', color: '#ef4444' },
   ];

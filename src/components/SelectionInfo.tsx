@@ -143,6 +143,55 @@ const RipadoSection = styled.div`
   }
 `;
 
+// NOVO: Estilos para dropdowns responsivos
+const DropdownSection = styled.div`
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md, 6px);
+  margin-bottom: var(--space-3);
+  overflow: hidden;
+  background: var(--color-surface);
+`;
+
+const DropdownHeader = styled.div<{ $isOpen: boolean }>`
+  padding: var(--space-3);
+  background: var(--color-background-alt);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  user-select: none;
+  transition: background 0.2s ease;
+  border-bottom: ${props => props.$isOpen ? '1px solid var(--color-border)' : 'none'};
+  
+  &:hover {
+    background: var(--color-border-light);
+  }
+  
+  h4 {
+    margin: 0;
+    color: var(--color-text);
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+  
+  &::after {
+    content: '${props => props.$isOpen ? '▲' : '▼'}';
+    font-size: 12px;
+    color: var(--color-text-secondary);
+    transition: transform 0.2s ease;
+  }
+`;
+
+const DropdownContent = styled.div<{ $isOpen: boolean }>`
+  max-height: ${props => props.$isOpen ? '1000px' : '0'};
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  padding: ${props => props.$isOpen ? 'var(--space-3)' : '0 var(--space-3)'};
+`;
+
 const RipadoControls = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -314,6 +363,11 @@ export const SelectionInfo: React.FC<SelectionInfoProps> = ({
     extensionBack: 0,
     gapExtension: 0
   });
+
+  // Estados para controlar dropdowns responsivos
+  const [isRipadoOpen, setIsRipadoOpen] = useState(true);
+  const [isTamponamentoOpen, setIsTamponamentoOpen] = useState(false);
+  const [isSarrafoOpen, setIsSarrafoOpen] = useState(false);
 
   // ===================================================================
   // NOVO useEffect PARA CARREGAR OS DADOS DA PEÇA SELECIONADA
@@ -498,8 +552,17 @@ export const SelectionInfo: React.FC<SelectionInfoProps> = ({
         <span>{dimensions.depth.toFixed(0)} mm</span>
       </InfoRow>
       <Divider />
-      <RipadoSection>
-        <Title as="h4">Criar Ripado na Peça</Title>
+      
+      {/* SEÇÃO DE RIPADO COM DROPDOWN */}
+      <DropdownSection>
+        <DropdownHeader 
+          $isOpen={isRipadoOpen}
+          onClick={() => setIsRipadoOpen(!isRipadoOpen)}
+        >
+          <h4>� Criar Ripado na Peça</h4>
+        </DropdownHeader>
+        <DropdownContent $isOpen={isRipadoOpen}>
+          <RipadoSection>
         {/* ... (Controles de Ripado existentes) ... */}
         <RipadoControls>
           <ControlGroup>
@@ -561,13 +624,21 @@ export const SelectionInfo: React.FC<SelectionInfoProps> = ({
         </RipadoControls>
 
         <ApplyButton onClick={handleApplyRipas} style={{marginTop: 'var(--space-3)'}}>Aplicar Ripado e Furos</ApplyButton>
-      </RipadoSection>
+          </RipadoSection>
+        </DropdownContent>
+      </DropdownSection>
 
-      {/* Seção de Tamponamento */}
+      {/* SEÇÃO DE TAMPONAMENTO COM DROPDOWN */}
       {createCappingFromPiece && (
-        <RipadoSection>
-          <Divider />
-          <h4 style={{color: 'var(--color-text)'}}>Criar Tamponamento na Peça</h4>
+        <DropdownSection>
+          <DropdownHeader 
+            $isOpen={isTamponamentoOpen}
+            onClick={() => setIsTamponamentoOpen(!isTamponamentoOpen)}
+          >
+            <h4>�️ Criar Tamponamento na Peça</h4>
+          </DropdownHeader>
+          <DropdownContent $isOpen={isTamponamentoOpen}>
+            <RipadoSection>
           
           <RipadoControls>
             <ControlGroup>
@@ -827,13 +898,22 @@ export const SelectionInfo: React.FC<SelectionInfoProps> = ({
               </RemoveButton>
             )}
           </div>
-        </RipadoSection>
+            </RipadoSection>
+          </DropdownContent>
+        </DropdownSection>
       )}
 
-      {/* Seção de Sarrafos */}
+      {/* SEÇÃO DE SARRAFOS COM DROPDOWN */}
       {(createSarrafoFromPiece || removeSarrafoFromPiece) && (
-        <RipadoSection>
-          <h4 style={{color: 'var(--color-text)'}}>Criar Sarrafos na Peça</h4>
+        <DropdownSection>
+          <DropdownHeader 
+            $isOpen={isSarrafoOpen}
+            onClick={() => setIsSarrafoOpen(!isSarrafoOpen)}
+          >
+            <h4>🔧 Criar Sarrafos na Peça</h4>
+          </DropdownHeader>
+          <DropdownContent $isOpen={isSarrafoOpen}>
+            <RipadoSection>
           
           <div>
             <label style={{
@@ -1129,7 +1209,9 @@ export const SelectionInfo: React.FC<SelectionInfoProps> = ({
               </RemoveButton>
             )}
           </div>
-        </RipadoSection>
+            </RipadoSection>
+          </DropdownContent>
+        </DropdownSection>
       )}
     </InfoContainer>
   );

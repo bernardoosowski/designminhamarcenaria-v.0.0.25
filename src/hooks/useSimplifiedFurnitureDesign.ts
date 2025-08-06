@@ -14,8 +14,8 @@ export const availableTextures = [
 const PIECE_CONFIG: Record<string, { name: string; color: string }> = {
     [PieceType.LATERAL_LEFT]: { name: 'Lateral Esquerda', color: '#8b5cf6' },
     [PieceType.LATERAL_RIGHT]: { name: 'Lateral Direita', color: '#8b5cf6' },
-    [PieceType.LATERAL_FRONT]: { name: 'Lateral Frontal', color: '#f59e0b' },
-    [PieceType.LATERAL_BACK]: { name: 'Costas', color: '#facc15' },
+    [PieceType.LATERAL_FRONT]: { name: 'Lateral Frontal', color: '#3b82f6' },
+    [PieceType.LATERAL_BACK]: { name: 'Costas', color: '#2563eb' },
     [PieceType.BOTTOM]: { name: 'Base', color: '#ef4444' },
     [PieceType.TOP]: { name: 'Tampo', color: '#ef4444' },
     [PieceType.SHELF]: { name: 'Prateleira', color: '#10b981' },

@@ -112,7 +112,7 @@ export const PieceVisualizer: React.FC<PieceVisualizerProps> = ({
 
     materials.forEach(mat => {
       if (mat instanceof THREE.MeshStandardMaterial) {
-        mat.emissive.set(isHovered && !isSelected ? '#fde047' : '#000000');
+        mat.emissive.set(isHovered && !isSelected ? '#93c5fd' : '#000000');
         mat.emissiveIntensity = isHovered && !isSelected ? 0.4 : 0;
       }
     });
@@ -146,7 +146,7 @@ export const PieceVisualizer: React.FC<PieceVisualizerProps> = ({
         <Edges
           scale={1}
           threshold={15}
-          color={isSelected ? '#f97316' : '#222222'}
+          color={isSelected ? '#3b82f6' : '#222222'}
           linewidth={isSelected ? 2.5 : 1}
         />
       </mesh>
